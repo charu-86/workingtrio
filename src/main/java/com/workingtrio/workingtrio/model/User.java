@@ -10,6 +10,8 @@ import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +20,8 @@ public class User{
     @NotBlank
     private String userName;
 
-    @Email @NotBlank
+    @Email
+    @NotBlank
     private String email;
 
     @NotBlank
