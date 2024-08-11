@@ -1,22 +1,20 @@
 package com.workingtrio.workingtrio.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "Room")
 public class Room {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @NotBlank
     private int number;
 
-    @NotNull
-    @OneToOne
-    private Facility type;
-
-    @NotNull
+    @NotBlank
     private boolean isAvailable;
 }

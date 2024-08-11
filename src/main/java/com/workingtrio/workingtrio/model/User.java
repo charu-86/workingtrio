@@ -9,6 +9,7 @@ import java.util.List;
 
 
 @Entity
+@Table (name = "User")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,9 +26,10 @@ public class User{
     private String email;
 
     @NotBlank
-    private int mobNo;
+    private String mobNo;
 
-    @OneToMany
-    private List<UserType> userType;
+    private boolean isAdmin;
+    private boolean isStaff;
+    private boolean isGuest;
 
 }
