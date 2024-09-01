@@ -16,5 +16,10 @@ public class Room {
     private int number;
 
     @NotBlank
+    @ManyToOne
+    @JoinColumn(name ="user_id")
+    private User userID;
+
+    @NotBlank
     private boolean isAvailable;
 }
