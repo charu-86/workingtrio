@@ -1,7 +1,10 @@
 package com.workingtrio.workingtrio.response;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 
 
@@ -9,9 +12,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 @Setter
+@Builder
 public class ResponseData {
     private String statusMessage;
-    private int statusCode;
+    private Integer statusCode;
     private String data;
 
 }

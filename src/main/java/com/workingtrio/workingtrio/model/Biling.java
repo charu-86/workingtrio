@@ -17,6 +17,7 @@ public class Biling {
 
     private Double price;
     @ManyToOne
+    @JoinColumn(name ="user_id")
     private User userId;
     private LocalDateTime createdAt;
 }
