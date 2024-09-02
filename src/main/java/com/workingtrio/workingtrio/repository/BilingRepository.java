@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface BilingRepository extends JpaRepository <Biling, Long>{
-    Optional<List<Biling>> findByUserId(Long user);
+    Optional<List<Biling>> findByUserId(User user);
 }

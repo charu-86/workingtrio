@@ -7,15 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 
-
-
-@Component
 @Getter
 @Setter
 @Builder
 public class ResponseData {
     private String statusMessage;
     private Integer statusCode;
-    private String data;
+    private Object data;
 
 }
