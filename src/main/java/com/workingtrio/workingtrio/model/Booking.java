@@ -18,6 +18,7 @@ public class Booking {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name ="user_id")
     private User userId;
 
     @ManyToOne
