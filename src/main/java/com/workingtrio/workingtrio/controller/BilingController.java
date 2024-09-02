@@ -1,5 +1,6 @@
 package com.workingtrio.workingtrio.controller;
 
+import com.workingtrio.workingtrio.model.User;
 import com.workingtrio.workingtrio.response.ResponseData;
 import com.workingtrio.workingtrio.service.BillingService;
 import lombok.RequiredArgsConstructor;
@@ -15,9 +16,8 @@ public class BilingController {
     private final BillingService billingService;
 
     @GetMapping("/userId/{id}")
-    public ResponseEntity<ResponseData> getBillsByUserId(@PathVariable Long id){
+    public ResponseEntity<ResponseData> getBillsByUserId(@PathVariable User id){
         ResponseData responseData = billingService.getBillsFromUser(id);
-
         return new ResponseEntity<ResponseData>(responseData, HttpStatus.OK);
     }
 }
