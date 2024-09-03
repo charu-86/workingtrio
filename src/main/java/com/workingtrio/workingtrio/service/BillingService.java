@@ -12,5 +12,6 @@ public interface BillingService {
 
     public ResponseData getBillsFromUser(User UserId);
     public ResponseData getListOfBills();
-    public ResponseData createBill(Long userId);
+    public ResponseData createBill(Biling billingDetail);
+    public ResponseData updateBill(Biling updatedBill, Long id);
 }

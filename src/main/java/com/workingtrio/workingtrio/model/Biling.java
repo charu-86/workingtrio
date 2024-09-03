@@ -1,12 +1,14 @@
 package com.workingtrio.workingtrio.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Builder
 public class Biling {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
