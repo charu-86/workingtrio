@@ -1,7 +1,6 @@
 package com.workingtrio.workingtrio.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.Name;
 import lombok.Builder;
 import lombok.Data;
 
