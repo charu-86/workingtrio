@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d16c4437-63c0-4f13-b0b9-789ff58e1aa7",
+		"_postman_id": "3ce1b99c-e1d0-40e0-9bd0-4924e994f4d9",
 		"name": "WorkingTrio",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28565988"
+		"_exporter_id": "26179493"
 	},
 	"item": [
 		{
@@ -135,6 +135,55 @@
 				}
 			],
 			"description": "Request Collection for user related operations"
+		},
+		{
+			"name": "Facility",
+			"item": [
+				{
+					"name": "Get all Facility",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/facility/allFacility",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facility",
+								"allFacility"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Paging",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/facility/paging/0/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facility",
+								"paging",
+								"0",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
