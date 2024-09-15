@@ -4,6 +4,7 @@ import com.workingtrio.workingtrio.response.ResponseData;
 import com.workingtrio.workingtrio.service.FacilityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,12 +20,12 @@ public class FacilityController {
     @GetMapping("/allFacility")
     public ResponseEntity<ResponseData> getListOfBills(){
         ResponseData responseData = facilityService.getAllFacility();
-        return new ResponseEntity<ResponseData>(responseData, HttpStatus.OK);
+        return new ResponseEntity<ResponseData>(responseData, HttpStatusCode.valueOf(responseData.getStatusCode()));
     }
 
     @GetMapping("/paging/{pageNumber}/{pageSize}")
     public ResponseEntity<ResponseData> getFacilityPagination(@PathVariable Integer pageNumber,@PathVariable Integer pageSize){
         ResponseData responseData = facilityService.getFacilityPagination(pageNumber,pageSize);
-        return new ResponseEntity<>(responseData,HttpStatus.OK);
+        return new ResponseEntity<>(responseData,HttpStatusCode.valueOf(responseData.getStatusCode()));
     }
 }

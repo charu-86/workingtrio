@@ -10,6 +10,4 @@ import java.util.Optional;
 @Repository
 public interface FacilityRepository extends JpaRepository<Facility,Long>{
 
-//    Optional<List<Facility>> findBy
-
 }
