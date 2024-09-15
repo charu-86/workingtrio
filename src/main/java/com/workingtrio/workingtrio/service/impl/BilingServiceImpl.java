@@ -90,13 +90,13 @@ public class BilingServiceImpl implements BillingService {
             bill.get().setFacilityType(updatedBill.getFacilityType());
             bilingRepository.save(bill.get());
             return ResponseData.builder()
-                    .data("Value you entered has been successfully updated.")
+                    .data("Value updated.")
                     .statusCode(HttpStatus.NO_CONTENT.value())
                     .statusMessage("Updated")
                     .build();
         }
         return ResponseData.builder()
-                .data("Value you entered has not been updated.")
+                .data("Value not updated.")
                 .statusMessage("Bad Request")
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .build();

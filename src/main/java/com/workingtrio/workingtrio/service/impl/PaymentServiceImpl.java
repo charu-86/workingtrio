@@ -11,7 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -39,13 +41,44 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public ResponseData getPaymentFromAllUsers() {
-
-        return null;
+        List<Payment> listOfPayment = paymentRepository.findAll();
+        if(listOfPayment.isEmpty()){
+            return ResponseData.builder()
+                    .data(listOfPayment)
+                    .statusCode(HttpStatus.NOT_FOUND.value())
+                    .statusMessage("Not Found")
+                    .build();
+        }
+        return ResponseData.builder()
+                .data(listOfPayment)
+                .statusCode(HttpStatus.OK.value())
+                .statusMessage("Success")
+                .build();
     }
 
     @Override
-    public ResponseData CreatePayment(Payment paymentId) {
-        return null;
+    public ResponseData CreatePayment(Payment payment) {
+        if(Objects.isNull(payment)){
+            ResponseData.builder()
+                    .data(payment)
+                    .statusMessage("UNAUTHORIZED")
+                    .statusCode(HttpStatus.UNAUTHORIZED.value())
+                    .build();
+        }
+        Payment payment1 = paymentRepository.save(
+                Payment.builder()
+                        .paymentMode(payment.getPaymentMode())
+                        .userId(payment.getUserId())
+                        .billingID(payment.getBillingID())
+                        .status(payment.getStatus())
+                        .createdAt(LocalDateTime.now())
+                        .build()
+        );
+        return ResponseData.builder()
+                .data(payment)
+                .statusCode(HttpStatus.CREATED.value())
+                .statusMessage("Created")
+                .build();
     }
 
 
