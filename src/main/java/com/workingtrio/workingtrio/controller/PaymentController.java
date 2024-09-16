@@ -16,19 +16,19 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @GetMapping("/getPaymentFromUserId/{UserId}")
-    public ResponseEntity getPaymentsFromUserId(@PathVariable User userId ){
+    public ResponseEntity<ResponseData> getPaymentsFromUserId(@PathVariable User userId ){
         ResponseData responseData = paymentService.getPaymentsFromUserId(userId);
         return new ResponseEntity<>(responseData, HttpStatusCode.valueOf(responseData.getStatusCode()));
     }
 
     @GetMapping("/getPaymentFromAllUsers")
-    public ResponseEntity getPaymentFromAllUsers(){
+    public ResponseEntity<ResponseData> getPaymentFromAllUsers(){
         ResponseData responseData = paymentService.getPaymentFromAllUsers();
         return new ResponseEntity<>(responseData, HttpStatusCode.valueOf(responseData.getStatusCode()));
     }
 
     @PostMapping("/CreatePayment")
-    public ResponseEntity CreatePayment(@RequestBody Payment paymentId){
+    public ResponseEntity<ResponseData> CreatePayment(@RequestBody Payment paymentId){
         ResponseData responseData = paymentService.CreatePayment(paymentId);
         return new ResponseEntity<>(responseData, HttpStatusCode.valueOf(responseData.getStatusCode()));
     }
