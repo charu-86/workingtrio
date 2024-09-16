@@ -45,6 +45,7 @@ public class FacilityServiceImpl implements FacilityService {
         Pageable pageable = PageRequest.of(pagenumber, pagesize);
         Page<Facility> facilities = facilityRepository.findAll(pageable);
 
+
         if (!facilities.isEmpty()){
             return ResponseData.builder()
                     .data(facilities)
