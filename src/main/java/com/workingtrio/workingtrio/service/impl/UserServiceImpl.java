@@ -5,6 +5,7 @@ import com.workingtrio.workingtrio.repository.UserRepository;
 import com.workingtrio.workingtrio.response.ResponseData;
 import com.workingtrio.workingtrio.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,13 +22,13 @@ public class UserServiceImpl implements UserService {
         if (users.isEmpty()){
             return ResponseData.builder()
                     .statusMessage("Users not found")
-                    .statusCode(404)
+                    .statusCode(HttpStatus.NOT_FOUND.value())
                     .data(users)
                     .build();
         }
         return ResponseData.builder()
                 .statusMessage("Users found")
-                .statusCode(200)
+                .statusCode(HttpStatus.OK.value())
                 .data(userRepository.findAll())
                 .build();
     }
@@ -38,13 +39,13 @@ public class UserServiceImpl implements UserService {
         if (user.isEmpty()){
             return ResponseData.builder()
                     .statusMessage("User not found")
-                    .statusCode(404)
+                    .statusCode(HttpStatus.NOT_FOUND.value())
                     .data(user)
                     .build();
         }
         return ResponseData.builder()
                 .statusMessage("User found")
-                .statusCode(200)
+                .statusCode(HttpStatus.OK.value())
                 .data(user)
                 .build();
     }
@@ -55,13 +56,13 @@ public class UserServiceImpl implements UserService {
         if (newUser == null){
             return ResponseData.builder()
                     .statusMessage("User not created")
-                    .statusCode(400)
+                    .statusCode(HttpStatus.BAD_REQUEST.value())
                     .data(newUser)
                     .build();
         }
         return ResponseData.builder()
                 .statusMessage("User created")
-                .statusCode(201)
+                .statusCode(HttpStatus.CREATED.value())
                 .data(newUser)
                 .build();
     }
@@ -72,7 +73,7 @@ public class UserServiceImpl implements UserService {
         if(existingUser.isEmpty()){
             return ResponseData.builder()
                     .statusMessage("User not found")
-                    .statusCode(404)
+                    .statusCode(HttpStatus.NOT_FOUND.value())
                     .data(existingUser)
                     .build();
         }
@@ -85,8 +86,8 @@ public class UserServiceImpl implements UserService {
         updatedUser.setGuest(user.isGuest());
         userRepository.save(updatedUser);
         return ResponseData.builder()
-                .statusMessage("User updated")
-                .statusCode(200)
+                .statusMessage("User details updated")
+                .statusCode(HttpStatus.OK.value())
                 .data(updatedUser)
                 .build();
     }
@@ -97,14 +98,14 @@ public class UserServiceImpl implements UserService {
         if (user.isEmpty()){
             return ResponseData.builder()
                     .statusMessage("User not found")
-                    .statusCode(404)
+                    .statusCode(HttpStatus.NOT_FOUND.value())
                     .data(user)
                     .build();
         }
         userRepository.deleteById(userId);
         return ResponseData.builder()
                 .statusMessage("User deleted")
-                .statusCode(200)
+                .statusCode(HttpStatus.OK.value())
                 .data(user)
                 .build();
     }
