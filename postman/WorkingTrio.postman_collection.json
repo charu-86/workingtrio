@@ -313,7 +313,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Delete Room By Id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
